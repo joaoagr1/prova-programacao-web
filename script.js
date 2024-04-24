@@ -14,8 +14,17 @@ function fetchEstados() {
            // estadosLista.innerHTML = 'ok';
             data.forEach(estado => {
 
+                const uf = estado.sigla;
+                
+
                 const row = document.createElement('li');
                 row.addEventListener('click', function () {
+
+
+                    console.log(uf);
+                    window.location.href = `./municipios/index.html?uf=${uf}`;
+
+
                                 });
                 row.innerHTML = `
                       <li>${estado.nome}</li>
