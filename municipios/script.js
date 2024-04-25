@@ -1,3 +1,6 @@
+
+let favoritos = []
+
 function changePageTitle(title) {
     document.title = title
   }
@@ -46,28 +49,35 @@ function getSearchParams() {
                 
 
                 const row = document.createElement('li');
+
+                row.classList.add("fav");
+
                 row.addEventListener('click', function () {
 
+                alert(`${municipio.nome} adicionado(a) aos favoritos`)
 
-                    
-
+                //favoritos = localStorage.getItem("favoritos")    
+                favoritos.push(`${municipio.nome}`)
+                console.log(favoritos);
 
                                 });
                 row.innerHTML = `
-                      <li>${municipio.nome}</li> <button>⭐</button>
+                      <li>${municipio.nome}</li> <button id="fav">⭐</button>
                 `;
                 municipiosLista.appendChild(row);
+
+                
             });
         });
 }
-
-
-
-
 
 
   
   document.addEventListener('DOMContentLoaded', function () {
     getSearchParams()
     fetchMunicipios()
+
+    
   })
+
+  
