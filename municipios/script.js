@@ -1,5 +1,20 @@
+let favoritos;
 
-let favoritos = []
+if(localStorage.getItem("favoritos").length == 0 ){
+  favoritos = [];
+  console.log("igual a 0")
+  }else{
+    console.log("nao nulo")
+    
+   // favoritos = localStorage.getItem("favoritos")
+
+    aux = localStorage.getItem("favoritos");
+    
+  }
+  
+  function changePageTitle(title) {
+      document.title = title
+    }
 
 function changePageTitle(title) {
     document.title = title
@@ -58,6 +73,14 @@ function getSearchParams() {
 
                 //favoritos = localStorage.getItem("favoritos")    
                 favoritos.push(`${municipio.nome}`)
+
+                localStorage.setItem("favoritos", favoritos);
+
+                teste = localStorage.getItem("favoritos");
+
+
+                //console.log("teste"+teste)
+
                 console.log(favoritos);
 
                                 });
@@ -74,8 +97,10 @@ function getSearchParams() {
 
   
   document.addEventListener('DOMContentLoaded', function () {
+    
+
     getSearchParams()
-    fetchMunicipios()
+    fetchMunicipios(favoritos)
 
     
   })
