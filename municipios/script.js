@@ -1,16 +1,6 @@
-let favoritos;
+let favoritos=[];
 
-if(localStorage.getItem("favoritos").length == 0 ){
-  favoritos = [];
-  console.log("igual a 0")
-  }else{
-    console.log("nao nulo")
-    
-   // favoritos = localStorage.getItem("favoritos")
 
-    aux = localStorage.getItem("favoritos");
-    
-  }
   
   function changePageTitle(title) {
       document.title = title
